@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="body">
+		<ui:param name="selecionada" value="#{bean2.selecionada}" />
+
+		<b:container class="contenedor-pelicula-seleccionada"
+			rendered="#{bean1.validado.idTipoUsuario==1}">
+			<h:outputLink styleClass="contenedor-pelicula-img"
+				value="javascript:void(0)" onclick="PF('dlgVideo').show();">
+				<p:graphicImage value="#{bean2.selecionada.imagen}" styleClass="img"
+					title="Ver pelicula" />
+			</h:outputLink>
+
+			<div class="contenedor-pelicula-info">
+
+				<div class="text-center contenedor-h2">
+					<h:outputText value="#{bean2.selecionada.nombre}"
+						styleClass="nombrepelicula" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Administrador: " styleClass="subtitulo" />
+					<h:outputLabel style="text-transform: capitalize"
+						value="#{bean1.validado.nombre} #{ bean1.validado.apellido}"
+						styleClass="informacion" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Clasificación: " styleClass="subtitulo" />
+					<h:outputLabel value="#{bean2.conocerClasificacion(selecionada.getIdClasificacion()).getDescripcion()} "
+						styleClass="informacion" style="text-transform: capitalize"/>
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Sinopsis: " styleClass="subtitulo" />
+					<h:outputLabel value="#{bean2.selecionada.sinopsis} "
+						styleClass="informacion" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Pais: " styleClass="subtitulo" />
+					<h:outputLabel value="#{bean2.selecionada.pais} "
+						styleClass="informacion" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Genero: " styleClass="subtitulo" />
+					<h:outputLabel value="#{bean2.conocerGenero(selecionada.getIdGenero()).getDescripcion()} "
+						styleClass="informacion" style="text-transform: capitalize" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Audio: " styleClass="subtitulo" />
+					<h:outputLabel value="#{bean2.selecionada.idioma} "
+						styleClass="informacion" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Calidad: " styleClass="subtitulo" />
+					<h:outputLabel value="#{bean2.selecionada.calidad}"
+						styleClass="informacion" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Fecha Lanzamiento: " styleClass="subtitulo" />
+					<h:outputLabel value="#{bean2.selecionada.fechalanzamiento}"
+						styleClass="informacion" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Director: " styleClass="subtitulo" />
+					<h:outputLabel
+						value="#{bean2.directorPelicula(selecionada.getIdDirector()).getNombre()}"
+						styleClass="informacion" />
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLabel value="Autores: " styleClass="subtitulo" />
+					<ui:repeat var="a" value="#{bean2.autores}">
+						<h:outputLabel value="#{a.nombre}" styleClass="informacion" />
+					</ui:repeat>
+				</div>
+				<div class="contenedor-dato">
+					<h:outputLink onclick="PF('dlgVideo').show();"
+						styleClass="link-verpelicula" value="javascript:void(0)">Ver pelicula
+			        </h:outputLink>
+				</div>
+			</div>
+		</b:container>
+
+		<b:container class="contenedor-comentario"
+			rendered="#{bean1.validado.idTipoUsuario==1}">
+			<h:outputLink onclick="PF('dlgComentar').show();"
+				title="añada un comentario :)" styleClass="linkcomentario"
+				value="javascript:void(0)"> ¿Quieres añadir un comentario? </h:outputLink>
+			<div class="contenedor-comentarios">
+				<h:outputLabel value="Comentarios publicados..."
+					styleClass="h2-comentario-peli" />
+				<div class="comentarios">
+					<b:iconAwesome value="newspaper-o" styleClass="iconComentario" />
+					<h:outputLabel value="Esta pelicula es muy buenaaa!!"
+						styleClass="resultado" />
+					<h:outputLabel value="2019-02-01" styleClass="fecha-publicacion" />
+				</div>
+				<div class="comentarios">
+					<b:iconAwesome value="newspaper-o" styleClass="iconComentario" />
+					<h:outputLabel value="Esta pelicula es muy buenaaa!!"
+						styleClass="resultado" />
+					<h:outputLabel value="2019-02-01" styleClass="fecha-publicacion" />
+				</div>
+				<div class="comentarios">
+					<b:iconAwesome value="newspaper-o" styleClass="iconComentario" />
+					<h:outputLabel
+						value="Esta pelicula es muy buenaaa!!xxxxxxxxxxxxxx d"
+						styleClass="resultado" />
+					<h:outputLabel value="2019-02-01" styleClass="fecha-publicacion" />
+				</div>
+				<div class="comentarios">
+					<b:iconAwesome value="newspaper-o" styleClass="iconComentario" />
+					<h:outputLabel
+						value="El título en inglés del póster parece haber sido especialmente diseñado y no se 
+						trata de ninguna fuente. Para encontrar fuentes que se asemejen un poco al título de la
+						 película, podrías darle un vistazo a las fuentes de caricaturas o cómics en myfonts.com. 
+						 En cuanto a las fuentes gratuitas que son similares al título de la película, la fuente más
+						  parecida que podemos encontrar es la Carton Six diseñada por Jayvee D. Puedes descargarla 
+						  gratis"
+						styleClass="resultado" />
+					<h:outputLabel value="2019-02-01" styleClass="fecha-publicacion" />
+				</div>
+			</div>
+		</b:container>
+
+
+
+		<p:dialog header="video" widgetVar="dlgVideo" showEffect="explode"
+			hideEffect="explode" modal="true" styleClass="dialog"
+			rendered="#{bean1.validado.idTipoUsuario==1}">
+			<div class="contenedor-video-pelicula">
+				<div class="text-center contenedor-h22">
+					<h:outputLabel value="#{bean2.selecionada.nombre}"
+						styleClass="nombrepelicula-video" />
+				</div>
+				<div class="contenedor-video-pelicula-link">
+					<iframe width="90%" height="360" frameborder="0"
+						class="linkpelicula" 
+						src="#{bean2.selecionada.link}">
+					</iframe>
+				</div>
+			</div>
+		</p:dialog>
+
+
+
+		<p:dialog header="comentar" widgetVar="dlgComentar"
+			showEffect="explode" hideEffect="explode" modal="true"
+			styleClass="dialog2" rendered="#{bean1.validado.idTipoUsuario==1}">
+			<p:growl id="errorP" sticky="true" showDetail="true" life="3000" />
+			<div class="contenedor-comentar">
+				<h:form style="text-center">
+					<div class="h2-comentar-user text-center">
+						<h:outputLabel value="Deja un comentario #{bean1.validado.nombre} #{ bean1.validado.apellido}"
+							styleClass="nombreUser" />
+					</div>
+					<div class="text-comentar-user">
+						<h:inputTextarea styleClass="espacio" />
+					</div>
+					<div class="text-comentar-user">
+						<h:commandButton value="Comentar" styleClass="botonComentar"></h:commandButton>
+					</div>
+				</h:form>
+			</div>
+		</p:dialog>
+		<style type="text/css">
+.dialog {
+	width: 70% !important;
+}
+
+.dialog2 {
+	width: 40% !important;
+	height: auto;
+}
+
+.ui-dialog-title {
+	display: none !important;
+	background-color: white;
+}
+
+.ui-dialog-titlebar {
+	background-color: white;
+}
+</style>
+		<h:outputStylesheet library="css" name="pelicula.css" />
+	</ui:define>
+</ui:composition>
+</html>

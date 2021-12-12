@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="body">
+		<b:container styleClass="contenedor-padre-subir"  id="padre"
+		    rendered="#{bean1.validado.idTipoUsuario==2}">
+			<h:form>
+				<p:growl id="errorPel" sticky="true" showDetail="true" life="3000" />
+				<div class="contenedor-informacion">
+					<div class="contenedor-titulo">
+						<h:outputLabel value="Informacion Pelicula" styleClass="h1" />
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Nombre: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputText styleClass="input" required="true"
+								value="#{bean4.guardar.nombre}"
+								requiredMessage="El campo nombre no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Foto: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputText styleClass="input" required="true"
+								placeholder="link de la foto" value="#{bean4.guardar.imagen}"
+								requiredMessage="El campo foto no puede estar vacio" />
+						</div>
+
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel for="idDirector" value="Director: "
+								styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:selectOneMenu id="idDirector"
+								value="#{bean4.guardar.idDirector}">
+								<f:selectItem itemLabel="--- Seleccione Director ---"
+									itemValue="" />
+								<f:selectItems value="#{bean2.directores()}" styleClass="info" />
+							</p:selectOneMenu>
+						</div>
+
+					</div>
+					<div class="contenedor-fechas-padre">
+						<div class="contenedor-fecha">
+							<h:outputLabel value="Fecha Lanzamiento " styleClass="label" />
+							<p:inputText type="date" styleClass="input" required="true"
+								value="#{bean4.lanzamiento}"
+								requiredMessage="El campo fecha lanzamiento no puede estar vacio" />
+						</div>
+						<div class="contenedor-fecha">
+							<h:outputLabel value="Fecha Publicacion" styleClass="label" />
+							<p:inputText type="date" styleClass="input" required="true"
+							value="#{bean4.publicacion}"
+								requiredMessage="El campo fecha publicacion no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Pais: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputText styleClass="input" required="true"
+								value="#{bean4.guardar.pais}"
+								requiredMessage="El campo pais no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Calidad: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputText styleClass="input" required="true"
+								value="#{bean4.guardar.calidad}"
+								requiredMessage="El campo calidad no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Idioma: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputText styleClass="input" required="true"
+								value="#{bean4.guardar.idioma}"
+								requiredMessage="El campo idioma no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel for="idClasificacion" value="Clasificación: "
+								styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:selectOneMenu id="idClasificacion"
+								value="#{bean4.guardar.idClasificacion}">
+								<f:selectItem itemLabel="--- Seleccione Tipo Genero ---"
+									itemValue="" />
+								<f:selectItems value="#{bean2.clasificaciones()}"
+									styleClass="info" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel for="idGenero" value="Genero: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:selectOneMenu id="idGenero" value="#{bean4.guardar.idGenero}">
+								<f:selectItem itemLabel="--- Seleccione Tipo Genero ---"
+									itemValue="" />
+								<f:selectItems value="#{bean2.generos()}" styleClass="info" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="sinopsis: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputTextarea styleClass="input" required="true"
+								value="#{bean4.guardar.sinopsis}"
+								requiredMessage="El campo sinopsis no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Video: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputText styleClass="input" required="true"
+								placeholder="link del video" value="#{bean4.guardar.link}"
+								requiredMessage="El campo video no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-boton">
+						<p:commandButton value="Guardar" styleClass="boton"
+							update="padre" action="#{bean4.savePelicula}" />
+					</div>
+				</div>
+			</h:form>
+		</b:container>
+		<h:outputStylesheet library="css" name="subir.css" />
+	</ui:define>
+</ui:composition>
+</html>

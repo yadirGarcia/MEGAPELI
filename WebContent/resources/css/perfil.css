@@ -1,0 +1,259 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+* {
+	font-family: sans-serif;
+}
+
+.contenedor-informacion-usuario, .contenedor-actualizar-usuario {
+	width: 600px;
+	background: #F4EEEC;
+	margin: 20px auto;
+	border-radius: 10px;
+	padding-bottom: 15px;
+}
+
+.contenedor-actualizar-usuario {
+	margin: 0px;
+	width: 100%;
+}
+
+.h1 {
+	color: white !important;
+	font-size: 24px;
+	padding: 15px;
+	display: block;
+	background-color: red;
+	margin: auto;
+	border-radius: 10px;
+	text-align: center;
+	border-radius: 10px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.contenedor-informacion {
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.contenedor-boton {
+	width: 95%;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.contenedor-informacion .h2 {
+	float: left;
+	width: 30%;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 10px;
+	text-align: center;
+}
+
+.contenedor-informacion .h2-a {
+	width: 100%;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 10px;
+}
+
+.contenedor-informacion .h3, .contenedor-informacion .h4 {
+	float: left;
+	width: 65%;
+	margin-left: 5px;
+	background-color: white;
+	transform: translateY(-10px);
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 16px;
+	padding: 10px;
+   text-transform: capitalize;
+}
+
+.contenedor-informacion .h3-a, .contenedor-informacion .h4-a {
+	width: 90%;
+	border-radius: 15px;
+	display: block;
+	margin: auto;
+	outline: none;
+	cursor: pointer;
+	border: 2px solid white;
+	padding: 7px;
+}
+
+.contenedor-informacion .h3-a:focus, .contenedor-informacion .h4-a:focus
+	{
+	border: 2px solid green;
+}
+
+.contenedor-informacion .h4 {
+	padding-top: 10px;
+	transform: none;
+}
+
+.link {
+	float: right;
+}
+
+.fa-spin {
+	color: red;
+}
+
+.contenedor-tabla {
+	width: 90%;
+	margin: 15px auto;
+	margin-bottom: 60px;
+	padding: 10px !important;
+	border: 1px solid black !important;
+	border-radius: 15px;
+}
+
+.contenedor-tabla .tabla{
+	width: 98%;
+	margin: auto;
+}
+
+.tabla .ui-state-default{
+	background-color: red;
+	color:white;
+	font-size: 15px;
+}
+
+.tabla .ui-button-text, .ui-c{
+	background-color: red;
+}
+
+.tabla .ui-column-filter{
+	background-color: white;
+	border-radius: 15px;
+	padding: 5px;
+	font-size: 15px;
+	color:black;
+	width: 99%;
+	margin:auto;
+	border: none;
+	border-bottom: 3px solid white;
+	cursor: pointer;
+}
+
+.tabla .ui-column-filter:focus{
+	border-bottom:  3px solid black;
+}
+
+
+.tabla .tdR{
+	text-transform: capitalize;
+}
+
+.botonU{
+	background-color: red;
+	color:white;
+	font-size: 18px;
+	padding: 10px;
+}
+
+.sigiendo {
+	font-size: 22px;
+}
+
+
+/******************************  DESPLEGABLE **********************************/
+.dialog {
+	position: absolute !important;
+	background-color: white;
+	width: 40% !important;
+	margin: 0 auto !important;
+}
+
+.dialog  .ui-dialog-titlebar {
+	background-color: white;
+}
+
+.dialog  .ui-dialog-content {
+	padding: 0;
+}
+
+.dialog  .ui-dialog-title {
+	display: none;
+}
+
+.dialog  .ui-icon-closethick {
+	font-size: 22px;
+}
+
+.dialog  .ui-icon-closethick:hover {
+	opacity: 0.7;
+}
+
+.dialog  .ui-dialog-titlebar-icon {
+	color: white;
+}
+
+.dialog  .ui-dialog-titlebar-icon {
+	color: white;
+}
+
+.dialog  .ui-dialog-titlebar {
+	background-color: rgba(255, 138, 155, 0.3);
+}
+
+.dialog  .ui-button-text-only {
+	background-color: red;
+}
+
+.dialog  .ui-button-text {
+	color: white;
+	font-size: 15px;
+	background-color: red;
+	padding: 10px;
+}
+
+.button {
+	margin-top: 15px;
+	margin-bottom: 5px;
+	display: block;
+	margin: auto;
+	background: red;
+	padding: 8px;
+	color: white;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 722px) {
+	.contenedor-informacion-usuario {
+		width: 90%;
+	}
+	
+	.contenedor-tabla {
+	  width: 99%;
+	}
+}
+
+@media screen and (max-width: 482px) {
+	.contenedor-informacion-usuario {
+		width: 98%;
+	}
+	.contenedor-informacion {
+		overflow: none;
+	}
+	.contenedor-informacion .h2 {
+		float: none;
+		width: 100%;
+		text-align: left;
+	}
+	.contenedor-informacion .h3, .contenedor-informacion .h4 {
+		float: none;
+		width: 98%;
+		margin-top: 5px;
+		height: auto;
+	}
+	
+	.contenedor-tabla .tabla{
+	  width: 100%;
+	}
+}

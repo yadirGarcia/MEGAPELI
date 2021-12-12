@@ -1,0 +1,283 @@
+body {
+	width: 100%;
+	height: 100%;
+}
+
+.contenedor-pelicula-seleccionada {
+	width: 90% !important;
+	background-color: #F4EEEC;
+	height: auto;
+	border-radius: 15px;
+	margin: 20px auto;
+	overflow: hidden;
+	padding-bottom: 15px;
+}
+
+.contenedor-pelicula-img {
+	float: left;
+	width: 400px;
+	height: 500px;
+	border-radius: 15px;
+	margin: 15px;
+}
+
+.img {
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+}
+
+.contenedor-pelicula-img:hover .img {
+	opacity: 0.4;
+	cursor: pointer;
+}
+
+.contenedor-pelicula-info {
+	float: left;
+	width: 700px;
+	background-color: white;
+	margin-left: 30px;
+	margin-top: 20px;
+	border-radius: 10px;
+	padding-bottom: 10px;
+}
+
+.contenedor-h2 {
+	width: 100%;
+	padding: 15px;
+	background-color: red;
+	color: white;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+.contenedor-h2 .nombrepelicula {
+	font-style: italic;
+	font-size: 19px;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+.contenedor-dato {
+	width: 90%;
+	margin: 10px auto;
+}
+
+.contenedor-dato .subtitulo {
+	font-weight: bold;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.contenedor-dato .informacion {
+	padding-left: 10px;
+	font-weight: normal;
+	font-size: 15px;
+}
+
+.link-verpelicula {
+	font-size: 22px;
+}
+
+.link-verpelicula:hover {
+	color: red;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.ui-icon-closethick {
+	font-size: 22px !important;
+}
+
+.ui-dialog-content {
+	padding: 0 !important;
+}
+
+.contenedor-video-pelicula {
+	width: 100% !important;
+}
+
+.nombrepelicula-video {
+	width: 100% !important;
+	background: red;
+	color: white;
+	font-size: 22px;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.contenedor-video-pelicula-link {
+	width: 95% !important;
+	margin: 10px auto !important;
+}
+
+.contenedor-video-pelicula-link .linkpelicula {
+	display: block !important;
+	margin: 0 auto !important;
+}
+
+.contenedor-comentar {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.contenedor-comentar .nombreUser {
+	font-size: 22px !important;
+}
+
+.h2-comentar-user {
+	width: 100%;
+	background: red;
+	color: white;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.text-comentar-user {
+	width: 90%;
+	margin: 20px auto;
+}
+
+.text-comentar-user .espacio {
+	width: 100%;
+	font-size: 15px;
+	padding-left: 10px;
+	height: auto;
+}
+
+.text-comentar-user .botonComentar {
+	background: red;
+	color: white;
+	padding: 5px;
+	display: block;
+	margin: auto;
+}
+
+.contenedor-comentario {
+	width: 80% !important;
+	height: auto;
+	margin: 20px auto !important;
+	background-color: #F4EEEC !important;
+	border-radius: 15px !important;
+	padding: 5px;
+	padding-top: 20px;
+	margin: 20px auto !important;
+}
+
+.linkcomentario {
+	font-size: 22px !important;
+	margin-top: 20px !important;
+	margin-left: 15px !important;
+	text-decoration: none !important;
+	margin:
+}
+
+.linkcomentario:hover {
+	color: red;
+	cursor: pointer;
+}
+
+.contenedor-comentarios {
+	width: 90%;
+	margin: 10px auto;
+}
+
+.h2-comentario-peli {
+	font-size: 22px;
+	background: red;
+	color: white;
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.comentarios {
+	width: 100%;
+	font-weight: normal;
+	margin-top: 15px;
+	overflow: hidden;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: white;
+}
+
+.iconComentario {
+	float: left;
+	font-weight: bold;
+	color: red;
+}
+
+.fecha-publicacion {
+	text-align: right;
+	width: 100%;
+	font-size: 14px;
+}
+
+.resultado {
+	padding-left: 15px;
+	width: 90%;
+	float: left;
+	font-weight: normal;
+}
+
+@media screen and (max-width: 1282px) {
+	.contenedor-pelicula-seleccionada {
+		overflow: hidden;
+	}
+	.contenedor-pelicula-img {
+		float: none !important;
+		margin: 10px auto !important;
+		width: 400px !important;
+		height: 500px !important;
+	}
+	.contenedor-pelicula-info {
+		float: none !important;
+		margin: 20px auto !important;
+	}
+	.img {
+		width: 400px !important;
+		height: 500px !important;
+		display: block;
+		margin: 20px auto;
+	}
+}
+
+@media screen and (max-width: 1038px) {
+	.contenedor-pelicula-info {
+		width: 80%;
+	}
+	.contenedor-comentario {
+		width: 90% !important;
+	}
+}
+
+@media screen and (max-width: 826px) {
+	.contenedor-pelicula-info {
+		width: 95%;
+	}
+	.contenedor-comentarios {
+		width: 98% !important;
+	}
+}
+
+@media screen and (max-width: 662px) {
+	.h2-comentario-peli {
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 482px) {
+	.contenedor-pelicula-img {
+		width: 200px !important;
+		height: 300px !important;
+	}
+	.img {
+		width: 200px !important;
+		height: 300px !important;
+	}
+	
+	.linkcomentario{
+	  display: block !important;
+	  margin: 15px auto !important;
+	  text-align: center !important;
+	}
+}

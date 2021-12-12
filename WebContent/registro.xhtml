@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="body">
+
+		<b:container styleClass="contenedor-padre-subir"
+			rendered="#{bean5.tipo==1 || bean5.tipo==2}"  id="formAD">
+			<h:form>
+				<p:growl id="errorR" sticky="true" showDetail="true" life="3000" />
+
+				<div class="contenedor-informacion">
+					<div class="contenedor-titulo">
+					
+						<h:outputLabel value="Registrar Actor" styleClass="h1"
+							rendered="#{bean5.tipo==1}" />
+							
+						<h:outputLabel value="Registrar Director" styleClass="h1"
+							rendered="#{bean5.tipo==2}" />
+					</div>
+					
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Nombre: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+						
+							<p:inputText styleClass="input" required="true"
+								rendered="#{bean5.tipo==1}" value="#{bean5.actor.nombre}"
+								requiredMessage="El campo nombre no puede estar vacio" />
+								
+							<p:inputText styleClass="input" required="true"
+								rendered="#{bean5.tipo==2}" value="#{bean5.director.nombre}"
+								requiredMessage="El campo nombre no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Fecha Nacimiento: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputText styleClass="input" required="true" type="date"
+								value="#{bean5.fecha}"
+								requiredMessage="El campo fecha no puede estar vacio" />
+						</div>
+
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Nacionalidad: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+						
+							<p:inputText styleClass="input" required="true"
+								rendered="#{bean5.tipo==1}" value="#{bean5.actor.nacionalidad}"
+								requiredMessage="El campo nacionalidad no puede estar vacio" />
+								
+							<p:inputText styleClass="input" required="true"
+								rendered="#{bean5.tipo==2}"
+								value="#{bean5.director.nacionalidad}"
+								requiredMessage="El campo nacionalidad no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-boton">
+					
+						<p:commandButton value="Guardar Actor" styleClass="boton"
+							rendered="#{bean5.tipo==1}" update="formAD"
+							actionListener="#{bean5.registroActor()}" />
+							
+						<p:commandButton value="Guardar Director" styleClass="boton"
+							rendered="#{bean5.tipo==2}" update="formAD"
+							actionListener="#{bean5.registroDirector()}" />
+					</div>
+				</div>
+			</h:form>
+		</b:container>
+		
+		
+		
+		<b:container styleClass="contenedor-padre-subir" id="formP"
+			rendered="#{bean5.tipo==3}">
+			<h:form>
+				<p:growl id="errorP" sticky="true" showDetail="true" life="3000" />
+
+				<div class="contenedor-informacion">
+					<div class="contenedor-titulo">
+						<h:outputLabel value="Actualizar Personaje" styleClass="h1" />
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Pelicula: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:selectOneMenu id="idPelicula"
+								value="#{bean5.personaje.idPelicula}">
+								<f:selectItem itemLabel="--- Seleccione Director ---"
+									itemValue="" />
+								<f:selectItems value="#{bean5.peliculas()}" styleClass="info" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Rol: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:selectOneMenu id="idRol"
+								value="#{bean5.personaje.idRol}">
+								<f:selectItem itemLabel="--- Seleccione Director ---"
+									itemValue="" />
+								<f:selectItems value="#{bean5.roles()}" styleClass="info" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Actor: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:selectOneMenu id="idActor"
+								value="#{bean5.personaje.idActor}">
+								<f:selectItem itemLabel="--- Seleccione Director ---"
+									itemValue="" />
+								<f:selectItems value="#{bean5.actores()}" styleClass="info" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+
+					<div class="contenedor-datos">
+						<div class="contenedor-datos-label text-center">
+							<h:outputLabel value="Papel: " styleClass="label" />
+						</div>
+						<div class="contenedor-datos-input">
+							<p:inputTextarea styleClass="input" required="true"
+							 value="#{bean5.personaje.papel}"
+							  requiredMessage="El campo papel no puede estar vacio" />
+						</div>
+					</div>
+					<div class="contenedor-boton">
+						<p:commandButton value="Guardar" styleClass="boton"
+						update="formP" actionListener="#{bean5.savePersonaje()}" />
+					</div>
+				</div>
+			</h:form>
+		</b:container>
+
+
+
+		<h:outputStylesheet library="css" name="subir.css" />
+	</ui:define>
+</ui:composition>
+</html>

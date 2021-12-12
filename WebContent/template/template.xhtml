@@ -1,0 +1,91 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<title>MegaPeli</title>
+	<f:event type="preRenderView" listener="#{security.verificarSesion()}" />
+</h:head>
+
+<h:body styleClass="body">
+	<div>
+		<b:navBar brand="MegaPeli" brandHref="inicio.xhtml" fluid="true">
+			<f:facet name="kebab">
+				<span class="fa fa-chevron-right"></span>
+			</f:facet>
+			<h:form>
+
+				<b:navbarLinks rendered="#{bean1.validado.idTipoUsuario==1}">
+					<b:dropMenu value="#{bean1.validado.nombre}"
+						styleClass="text-center">
+						<b:navCommandLink value="perfil" href="perfil.xhtml" />
+						<b:navCommandLink value="Seguir" href="seguir.xhtml" />
+						<b:navCommandLink value="cerrar sesion"
+							actionListener="#{security.cerrarSesion()}"
+							action="login?faces-redirect=true" />
+					</b:dropMenu>
+					<b:navCommandLink value="Acción" actionListener="#{bean2.accion()}" />
+					<b:navCommandLink value="Animacion"
+						actionListener="#{bean2.animacion()}" />
+					<b:navCommandLink value="Aventura"
+						actionListener="#{bean2.aventura()}" />
+					<b:navCommandLink value="Ciencia Ficción"
+						actionListener="#{bean2.cienciaFiccion()}" />
+					<b:navCommandLink value="Comedia"
+						actionListener="#{bean2.comedia()}" />
+					<b:navCommandLink value="Crimen" actionListener="#{bean2.crimen()}" />
+					<b:navCommandLink value="Drama" actionListener="#{bean2.drama()}" />
+					<b:navCommandLink value="Fantasia"
+						actionListener="#{bean2.fantasia()}" />
+					<b:navCommandLink value="Misterio"
+						actionListener="#{bean2.misterio()}" />
+					<b:navCommandLink value="Romantica"
+						actionListener="#{bean2.romantica()}" />
+					<b:navCommandLink value="Suspenso"
+						actionListener="#{bean2.suspenso()}" />
+					<b:navCommandLink value="Terror" actionListener="#{bean2.terror()}" />
+				</b:navbarLinks>
+
+
+
+				<b:navbarLinks rendered="#{bean1.validado.idTipoUsuario==2}">
+					<b:dropMenu value="#{bean1.validado.nombre}"
+						styleClass="text-center">
+						<b:navCommandLink value="perfil" href="perfil.xhtml" />
+						<b:navCommandLink value="cerrar sesion"
+							actionListener="#{security.cerrarSesion()}"
+							action="login?faces-redirect=true" />
+					</b:dropMenu>
+					<b:navCommandLink value="Suscriptores"
+						actionListener="inicio.xhtml" />
+					<b:navCommandLink value="Peliculas" action="selecionada.xhtml" />
+					<b:navCommandLink value="Subir Pelicula" action="subir.xhtml" />
+					<b:navCommandLink value="Registrar Actor"
+					    actionListener="#{bean5.registroActor()}" />
+					<b:navCommandLink value="Registrar Director"
+					    actionListener="#{bean5.registroDirector()}" />
+					<b:navCommandLink value="Personaje" 
+					   actionListener="#{bean5.registroPersonaje()}" />
+					<b:navCommandLink value="Publicidad" actionListener="inicio.xhtml" />
+					<b:navCommandLink value="Gestor Visitas" actionListener="inicio.xhtml" />
+					<b:navCommandLink value="Pagos" actionListener="inicio.xhtml" />					
+				</b:navbarLinks>
+			</h:form>
+		</b:navBar>
+	</div>
+
+	<ui:insert name="body"></ui:insert>
+	<div class="footer-template">
+		<div class="contenedor-footer-template">
+			<h:outputLabel
+				value="Todos los derechos reservados | MegaPelis V1.0 |" />
+		</div>
+	</div>
+	<h:outputStylesheet library="css" name="template.css" />
+</h:body>
+</html>

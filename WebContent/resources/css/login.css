@@ -1,0 +1,281 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Ubuntu", helvetica !important;
+	width: 100%;
+	height: 100%;
+	background-image:
+		url("https://img-cdn.hipertextual.com/files/2014/03/posters-de-peliculas.jpg?strip=all&lossy=1&quality=70&ssl=1");
+	background-repeat: none;
+}
+
+.contenedor-padre {
+	position: relative !important;
+	width: 100% !important;
+	height: 100vh !important;
+}
+
+.contenedor-formulario{
+	position: absolute !important;
+	width: 400px;
+	height: auto;
+	left: 50%;
+	top: 50%;
+	-moz-transform: translate(-50%, -50%); 
+	-o-transform : translate( -50%, -50%); 
+	-ms-transform : translate( -50%, -50%); 
+	-webkit-transform : translate( -50%, -50%); 
+	transform : translate( -50%, -50%);
+	background-color: #fff;
+	border-radius: 5px;
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+
+.dialog {
+	position: absolute !important;
+	background-color: white;
+	width: 40% !important;
+	margin: 0 auto !important;
+}
+
+.ui-dialog-titlebar{
+	background-color: white;	
+}
+
+.ui-dialog-content{
+	padding: 0;
+}
+
+.ui-dialog-title{
+	display: none;
+}
+
+.ui-icon-closethick{
+	font-size: 22px;
+}
+
+.ui-icon-closethick:hover{
+ opacity: 0.7;	
+}
+
+.ui-dialog-titlebar-icon{
+	color:white;
+}
+
+.ui-dialog-titlebar-icon{
+	color:white;
+}
+
+.ui-dialog-titlebar{
+	background-color: rgba ( 255, 138, 155, 0.3 );
+}
+
+.contenedor-input {
+	width: 90%;
+	margin: 10px auto;
+}
+
+.contenedor-result {
+	margin-top: 5px;
+}
+
+.labelI {
+	font-weight: bold;
+	padding-left: 10px;
+}
+
+.input {
+	font-size: 18px !important;
+	display: block !important;
+	width: 100% !important;
+	height: 40px !important;
+	padding: 5px 10px !important;
+	background: none !important;
+	background-image: none !important;
+	border: 0 solid black !important;
+	color: black !important;
+	border-bottom: 2px solid #a0b3b0 !important;
+	transition: all 0.5s ease !important;
+	border-radius: 15px !important;
+	margin: 0 auto !important;
+}
+
+.input:hover {
+	cursor: pointer !important;
+}
+
+.input:focus {
+	outline: none !important;
+	border-color: #1ab188 !important;
+}
+
+.contenedor-formulario-registro {
+	width: 100% !important;
+	border-radius: 5px;
+	background-color: white;
+}
+
+.contenedor-h2 {
+	background-color: red;
+	margin-bottom: 20px;
+	width: 100%;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.h2 {
+	color: white !important;
+}
+
+.button {
+	clear: both !important;
+	margin-bottom: 15px !important;
+	border: 0 !important;
+	outline: none !important;
+	border-radius: 5px !important;
+	cursor: pointer !important;
+	padding: 15px 0 !important;
+	padding-left: 17px !important;
+	padding-right: 17px !important;
+	font-size: 18px !important;
+	width: auto !important;
+	align-content: center !important;
+	height: 60px !important;
+	background-color: red !important;
+	color: #fff !important;
+	padding: 10px;
+	transition: all 0.5s ease !important;
+	-webkit-appearance: none !important;
+	transition: all 0.5s ease !important;
+}
+
+.button:hover, .button:focus {
+	background-color: red !important;
+	opacity: 0.7 !important;
+	color: white !important;
+	opacity: 0.7 !important;
+}
+
+.contenedor-forgot {
+	overflow: hidden;
+}
+
+.forgot {
+	float: right;
+	font-size: 15px;
+	text-align: right;
+	color: black;
+	text-decoration: none;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+.forgot:hover {
+	text-decoration: none;
+	color: red;
+}
+
+.header {
+	color: white !important;
+	font-size: 18px !important;
+	text-align: center !important;
+}
+
+.contenedor-button {
+	overflow: hidden;
+	width: 90%;
+}
+
+.buttonF {
+	margin-top: 20px;
+	background: red;
+	color: white;
+	float: left;
+}
+
+.mensaje {
+	font-size: 10px !important;
+	color: white !important;
+	outline: none !important;
+	background: red !important;
+}
+
+.info:hover {
+	background-color: red !important;
+}
+
+@media screen and (max-width: 420px) {
+	.contenedor-formulario {
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.forgot {
+		font-size: 12px;
+	}
+	
+	.h2{
+	  font-size: 18px;
+	}
+	
+	.button{
+	  padding: 5px;
+	}
+}
+
+
+@media screen and (max-width: 915px) {
+	.dialog {
+	  width: 60% !important;
+	}
+}
+
+@media screen and (max-width: 730px) {
+	.dialog {
+	 top: 50%;
+	 left: 50%;
+	}
+}
+
+@media screen and (max-width: 594px) {
+	.dialog {
+	 top: 50%;
+	 left: 50%;	 
+	 width: 70% !important;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.dialog {
+	 top: 50%;
+	 left: 50%;
+	}
+}
+
+
+@media screen and (max-width: 416px) {
+	.dialog {
+	   width: 90% !important;
+	}
+}
+
+@media screen and (max-width: 394px) {
+	.dialog {
+	 top: 50%;
+	 left: 50%;
+	}
+}
+
+@media screen and (max-width: 314px) {
+	.dialog {
+	 width: 99% !important;
+	}
+}

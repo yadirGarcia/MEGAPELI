@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="body">
+		<b:container class="contenedor-pelicula"
+			rendered="#{bean1.validado.idTipoUsuario==1}">
+			<h:form>
+				<ui:repeat var="p" value="#{bean2.listaPeliculas()}">
+					<ui:param name="usuario"
+						value="#{bean3.conocerUsuario(p.getIdUsuario())}" />
+					<h:commandLink actionListener="#{bean2.peliculaSelec(p)}"
+						action="pelicula.xhtml" styleClass="contenedor-link-pelicula">
+						<h:graphicImage styleClass="imagen-pelicula"
+							value="#{p.getImagen()}" style="text-transform: capitalize"
+							title="#{usuario.nombre} #{usuario.apellido}" />
+						<h:outputLabel value="#{p.getNombre()}" styleClass="cabezera-text" />
+					</h:commandLink>
+				</ui:repeat>
+			</h:form>
+		</b:container>
+		
+		<b:container rendered="#{bean1.validado.idTipoUsuario==2}"
+			styleClass="contenedor-tabla">
+			<h:outputLabel value="Suscriptores...." styleClass="sigiendo" />
+			<h:form>
+				<p:dataTable id="tablaSuscriptores" var="susc"
+					value="#{bean4.listaSuscriptores()}" styleClass="text-center tabla"
+					emptyMessage="No hay resultados ......">
+					<ui:param name="nombre"
+						value="#{bean3.conocerUsuario(susc.getIdUsuario()).getNombre()}" />
+					<ui:param name="apellido"
+						value="#{bean3.conocerUsuario(susc.getIdUsuario()).getApellido()}" />
+					<p:column headerText="Nombre" filterBy="#{nombre}"
+						filterMatchMode="contains">
+						<h:outputText value="#{nombre}" styleClass="tdR" />
+					</p:column>
+					<p:column headerText="Apellido" filterBy="#{apellido}"
+						filterMatchMode="contains">
+						<h:outputText value="#{apellido}" styleClass="tdR" />
+					</p:column>
+					<p:column headerText="Fecha Suscripción">
+						<h:outputText styleClass="tdR"
+							value="#{susc.getFechaSuscripcion()}" />
+					</p:column>
+					<p:column headerText="Eliminar">
+						<p:commandButton icon="fa fa-trash-o" title="Eliminar"
+							action="#{bean3.dejarSeguir(susc)}" update="tablaSuscriptores" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</b:container>
+		
+		<h:outputStylesheet library="css" name="inicio.css" />
+		<h:outputStylesheet library="css" name="perfil.css" />
+	</ui:define>
+</ui:composition>
+</html>

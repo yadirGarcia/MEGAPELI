@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="body">
+		<f:event type="preRenderView" listener="#{security.usuario()}" />
+		<b:container rendered="#{bean1.validado.idTipoUsuario==1}"
+			styleClass="contenedor-tabla">
+			<h:form>
+				<p:dataTable var="us" value="#{bean3.listaAdministradores()}"
+					styleClass="text-center tabla" id="tablaSeguir">
+					<p:column headerText="Nombre" filterBy="#{us.getNombre()}">
+						<h:outputText value="#{us.getNombre()}" styleClass="tdR" />
+					</p:column>
+					<p:column headerText="Apellido" filterBy="#{us.getApellido()}">
+						<h:outputText value="#{us.getApellido()}" styleClass="tdR" />
+					</p:column>
+					<p:column headerText="Peliculas Publicadas">
+							<h:outputText value="#{bean4.peliculasPublicadas(us.getId())}"  
+								styleClass="tdR"/>
+					</p:column>
+					<p:column headerText="Seguidores">
+						<h:outputText value="#{bean4.seguidores(us.getId())}"
+							styleClass="tdR" />
+					</p:column>
+					<p:column headerText="Seguir">
+						<p:commandButton icon="fa fa-thumbs-o-down" styleClass="tdR"
+							rendered="#{bean4.esSuscriptor(us.getId())==true}"
+							action="#{bean3.dejarSeguir(us.getId())}" update="tablaSeguir" />
+						<p:commandButton icon="fa fa-thumbs-o-up" styleClass="tdR"
+							rendered="#{bean4.esSuscriptor(us.getId())==false}"
+							action="#{bean3.seguir(us.getId())}" update="tablaSeguir" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</b:container>		
+		<h:outputStylesheet library="css" name="perfil.css" />
+	</ui:define>
+</ui:composition>
+</html>

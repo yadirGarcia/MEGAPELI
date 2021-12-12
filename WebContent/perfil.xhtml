@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="body">
+
+		<script type="text/javascript">
+			function handleActualizarRequest(xhr, status, args) {
+				if (args.validationFailed || !args.loggedIn) {
+					PF('dlgActualizar').jq.effect("shake", {
+						times : 5
+					}, 100);
+				} else {
+					PF('dlgActualizar').hide();
+					$('#dlgLink').fadeOut();
+				}
+			}
+		</script>
+		<div class="contenedor-informacion-usuario" id="informacionUsuario">
+			<h:outputText value="Información Personal"
+				styleClass="h1 text-center" />
+			<div class="contenedor-informacion">
+				<h:outputLabel value="Nombre: " styleClass="h2" />
+				<h:outputLabel value="#{bean1.validado.nombre}" styleClass="h3" />
+			</div>
+			<div class="contenedor-informacion">
+				<h:outputLabel value="Apellido: " styleClass="h2" />
+				<h:outputLabel value="#{bean1.validado.apellido}" styleClass="h3" />
+			</div>
+			<div class="contenedor-informacion">
+				<h:outputLabel value="Email: " styleClass="h2" />
+				<h:outputLabel value="#{bean1.validado.email}" styleClass="h3" 
+				 style="text-transform: none"/>
+			</div>
+			<div class="contenedor-informacion">
+				<h:outputLabel value="Tipo Usuario: " styleClass="h2" />
+				<h:outputLabel value="#{bean3.tipoUsuario(bean1.validado.idTipoUsuario)}"
+					styleClass="h3" />
+			</div>
+			<div class="contenedor-informacion">
+				<h:outputLabel value="Fecha Nacimiento: " styleClass="h2" />
+				<h:outputLabel value="#{bean1.validado.fechaNacimiento}"
+					styleClass="h4" />
+			</div>
+			<div class="contenedor-informacion">
+				<h:outputLabel value="Fecha Registro: " styleClass="h2" />
+				<h:outputLabel value="#{bean1.validado.fechaRegistro}"
+					styleClass="h4" />
+			</div>
+			<div class="contenedor-informacion">
+				<h:outputLink value="javascript:void(0)" styleClass="link"
+					onclick="PF('dlgActualizar').show();"
+					title="Actualizar Información">
+					<b:iconAwesome name="cog" spin="true" size="3x" />
+				</h:outputLink>
+			</div>
+		</div>
+
+		<b:container rendered="#{bean1.validado.idTipoUsuario==1}"
+			styleClass="contenedor-tabla">
+			<h:outputLabel value="Siguiendo...." styleClass="sigiendo" />
+			<h:form>
+				<p:dataTable id="tablaSiguiendo" var="susc"
+					value="#{bean3.initSuscriptores()}" styleClass="text-center tabla"
+					emptyMessage="No hay resultados ......">
+					<ui:param name="nombre"
+						value="#{bean3.conocerUsuario(susc.getIdSuscripto()).getNombre()}" />
+					<ui:param name="apellido"
+						value="#{bean3.conocerUsuario(susc.getIdSuscripto()).getApellido()}" />
+					<p:column headerText="Nombre" filterBy="#{nombre}"
+						filterMatchMode="contains">
+						<h:outputText value="#{nombre}" styleClass="tdR" />
+					</p:column>
+					<p:column headerText="Apellido" filterBy="#{apellido}"
+						filterMatchMode="contains">
+						<h:outputText value="#{apellido}" styleClass="tdR" />
+					</p:column>
+					<p:column headerText="Peliculas Publicadas">
+						<h:outputText styleClass="tdR"
+							value="#{bean4.peliculasPublicadas(susc.getIdSuscripto())}" />
+					</p:column>
+					<p:column headerText="Dejar Seguir">
+						<p:commandButton icon="fa fa-thumbs-o-down" 
+							action="#{bean3.dejarSeguir(susc)}" update="tablaSiguiendo" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</b:container>
+
+
+		<p:dialog header="forgot" widgetVar="dlgActualizar"
+			showEffect="explode" hideEffect="explode" modal="true"
+			styleClass="dialog">
+
+			<p:growl id="errorA" sticky="true" showDetail="true" life="3000" />
+
+			<h:form>
+				<div class="contenedor-actualizar-usuario">
+					<h:outputText value="Actualizar Información"
+						styleClass="h1 text-center" />
+
+					<div class="contenedor-informacion">
+						<h:outputLabel value="Nombre: " styleClass="h2-a" />
+						<h:inputText value="#{bean3.actualizar.nombre}"
+							styleClass="h3-a"
+							validator="#{loginValidator.validarNombreYApellido}" />
+					</div>
+
+					<div class="contenedor-informacion">
+						<h:outputLabel value="Apellido: " styleClass="h2-a" />
+						<h:inputText value="#{bean3.actualizar.apellido}"
+							styleClass="h3-a"
+							validator="#{loginValidator.validarNombreYApellido}" />
+					</div>
+
+					<div class="contenedor-informacion">
+						<h:outputLabel value="Email: " styleClass="h2-a" />
+						<h:inputText value="#{bean3.actualizar.email}"
+							styleClass="h3-a" validator="#{loginValidator.validarCorreo}" />
+					</div>
+
+					<div class="contenedor-informacion">
+						<h:outputLabel value="Password Nueva: " styleClass="h2-a" />
+						<p:password value="#{bean3.actualizar.password}" 
+							styleClass="h3-a" validator="#{loginValidator.validarPassword}" />
+					</div>
+					<div class="contenedor-boton">
+						<p:commandButton value="Actualizar" update="errorA"
+							action="#{bean3.actualizarUsuario}" styleClass="button"
+							oncomplete="handleActualizarRequest(xhr, status, args)" />
+					</div>
+				</div>
+			</h:form>
+		</p:dialog>
+		<h:outputStylesheet library="css" name="perfil.css" />
+		<style type="text/css">
+.h1 {
+	color: white;
+}
+</style>
+	</ui:define>
+</ui:composition>
+</html>
